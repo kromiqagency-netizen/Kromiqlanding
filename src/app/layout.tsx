@@ -29,6 +29,50 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
+  keywords: [
+    "Digital Marketing Agency Mumbai",
+    "Enterprise SEO Services",
+    "Strategic Growth Agency India",
+    "PPC Management Global",
+    "KROMIQ Digital",
+    "Performance Marketing Mumbai"
+  ],
+  authors: [{ name: "KROMIQ Strategy Team" }],
+  creator: "KROMIQ",
+  publisher: "KROMIQ",
+  alternates: {
+    canonical: "https://www.kromiq.in",
+  },
+  icons: {
+    icon: "/icon.png",
+    apple: "/icon.png",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "KROMIQ",
+  "alternateName": "Kromium Digital",
+  "url": "https://www.kromiq.in",
+  "logo": "https://www.kromiq.in/icon.png",
+  "description": "Premium digital marketing agency specializing in SEO, PPC, and Strategic Growth for Global and Indian markets.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Mumbai",
+    "addressRegion": "Maharashtra",
+    "addressCountry": "IN"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+91-XXXXXXXXXX",
+    "contactType": "sales",
+    "areaServed": ["IN", "US", "GB"]
+  },
+  "sameAs": [
+    "https://www.linkedin.com/company/kromiq",
+    "https://twitter.com/kromiq"
+  ]
 };
 
 export default function RootLayout({
@@ -38,6 +82,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${outfit.variable} ${spaceMono.variable} dark scroll-smooth`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="bg-background text-foreground selection:bg-primary/30 font-sans overflow-x-hidden">
         {children}
       </body>
