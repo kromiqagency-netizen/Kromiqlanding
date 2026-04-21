@@ -227,16 +227,16 @@ export default function LeadCaptureForm() {
             </div>
 
             <div className="flex flex-col sm:flex-row items-end sm:items-center justify-between gap-8 pt-4">
-              <div className="w-full sm:w-auto opacity-40 hover:opacity-100 transition-opacity">
+              <div className="w-full sm:w-auto min-h-[65px] flex items-center transition-opacity duration-300">
                 <Turnstile
                   ref={turnstileRef}
-                  // Using Cloudflare's 'Always Pass' key for localhost testing
+                  // Using Cloudflare's 'Always Pass' key for localhost/testing
                   siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || '1x00000000000000000000AA'} 
                   onSuccess={(token) => {
                     console.log('[SECURITY] Turnstile verified:', token);
                     setValue('turnstileToken', token);
                   }}
-                  options={{ theme: 'dark', size: 'flexible' }}
+                  options={{ theme: 'dark', size: 'normal' }}
                 />
               </div>
 
