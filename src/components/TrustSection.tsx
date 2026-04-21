@@ -20,8 +20,7 @@ export default function TrustSection() {
           </motion.p>
           
           <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-30 grayscale hover:grayscale-0 transition-all duration-700">
-            {/* These are placeholders - real logos should be added here */}
-            {['Nexus', 'Chroma', 'Vertex', 'Quant', 'Apex'].map((brand, i) => (
+            {['rojgaar.co', 'alayaa', 'wandersoul'].map((brand, i) => (
               <motion.div
                 key={brand}
                 initial={{ opacity: 0 }}
