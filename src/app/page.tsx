@@ -11,6 +11,8 @@ import ProcessSection from '@/components/ProcessSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import LeadCaptureForm from '@/components/LeadCaptureForm';
 import DigitalConcierge from '@/components/DigitalConcierge';
+import TrustSection from '@/components/TrustSection';
+import AuditBanner from '@/components/AuditBanner';
 import { ArrowRight } from 'lucide-react';
 
 export default function Home() {
@@ -27,6 +29,7 @@ export default function Home() {
       <DigitalConcierge />
       
       <HeroSection />
+      <TrustSection />
 
       {/* Services / Ecosystem */}
       <EcosystemSection />
@@ -78,6 +81,8 @@ export default function Home() {
         {/* Background glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 blur-[150px] rounded-full -z-10" />
       </section>
+
+      <AuditBanner />
 
       {/* Lead Capture Section */}
       <section id="contact" className="py-32 md:py-44 relative overflow-hidden">
