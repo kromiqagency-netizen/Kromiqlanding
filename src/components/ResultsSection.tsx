@@ -98,16 +98,24 @@ export default function ResultsSection() {
               transition={{ duration: 0.8, ease: easeOut, delay: i * 0.1 }}
               className="group p-6 md:p-12 bg-zinc-900/30 border border-white/5 rounded-2xl hover:border-white/10 transition-all neon-border"
             >
-              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
-                <div className="flex-1">
-                  <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 mb-4">
-                    <h3 className="text-xl md:text-3xl font-display font-bold tracking-tight">{study.client}</h3>
-                    <span className="w-fit text-[10px] bg-white/5 text-foreground/40 px-3 py-1 rounded-full font-medium">{study.industry}</span>
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+                  <div className="flex-1">
+                    <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 mb-4">
+                      <h3 className="text-xl md:text-3xl font-display font-bold tracking-tight">{study.client}</h3>
+                      <span className="w-fit text-[10px] bg-white/5 text-foreground/40 px-3 py-1 rounded-full font-medium">{study.industry}</span>
+                    </div>
+                    <p className="text-primary font-semibold text-base md:text-lg mb-3">{study.result}</p>
+                    <p className="text-foreground/40 text-sm md:text-base leading-relaxed max-w-2xl mb-8">{study.description}</p>
+                    
+                    <a 
+                      href={`/results/${study.client.toLowerCase().replace('.co.in', '').replace('.co', '')}`}
+                      className="inline-flex items-center gap-2 text-xs font-mono font-bold text-foreground/40 uppercase tracking-[0.2em] group/link hover:text-primary transition-colors"
+                    >
+                      View Case Study
+                      <TrendingUp size={14} className="group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
+                    </a>
                   </div>
-                  <p className="text-primary font-semibold text-base md:text-lg mb-3">{study.result}</p>
-                  <p className="text-foreground/40 text-sm md:text-base leading-relaxed max-w-2xl">{study.description}</p>
-                </div>
-                <div className="flex flex-wrap gap-2 md:flex-col md:items-end md:flex-shrink-0">
+                  <div className="flex flex-wrap gap-2 md:flex-col md:items-end md:flex-shrink-0">
                   {study.metrics.map((m) => (
                     <span key={m} className="text-[9px] md:text-xs bg-white/[0.03] border border-white/5 text-foreground/50 px-3 md:px-4 py-1.5 md:py-2 rounded-full font-mono whitespace-nowrap">
                       {m}

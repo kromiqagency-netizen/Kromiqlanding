@@ -6,6 +6,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     '',
     '/insights',
+    '/results/alayaa',
+    '/results/wandersoul',
+    '/results/rojgaar',
     '/services/ai-automation',
     '/services/brand-identity',
     '/services/digital-strategy',
