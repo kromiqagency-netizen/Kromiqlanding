@@ -4,15 +4,20 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function PageLoader() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    // Simulate initial load
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2500);
-
-    return () => clearTimeout(timer);
+    // Check if loader has already been shown in this session
+    const hasShown = sessionStorage.getItem('kromiq_loader_shown');
+    
+    if (!hasShown) {
+      setLoading(true);
+      const timer = setTimeout(() => {
+        setLoading(false);
+        sessionStorage.setItem('kromiq_loader_shown', 'true');
+      }, 2500);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   return (
