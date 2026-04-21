@@ -26,6 +26,7 @@ export default function Navigation() {
 
   const navLinks = [
     { name: 'Services', href: '#', hasDropdown: true },
+    { name: 'Insights', href: '/insights' },
     { name: 'Results', href: '/#results' },
     { name: 'Process', href: '/#process' },
     { name: 'Contact', href: '/#contact' },
