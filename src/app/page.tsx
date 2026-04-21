@@ -5,14 +5,14 @@ import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
-import EcosystemSection from '@/components/EcosystemSection';
-import ResultsSection from '@/components/ResultsSection';
-import ProcessSection from '@/components/ProcessSection';
-import TestimonialsSection from '@/components/TestimonialsSection';
-import LeadCaptureForm from '@/components/LeadCaptureForm';
-import DigitalConcierge from '@/components/DigitalConcierge';
-import TrustSection from '@/components/TrustSection';
-import AuditBanner from '@/components/AuditBanner';
+const TrustSection = dynamic(() => import('@/components/TrustSection'), { ssr: true });
+const EcosystemSection = dynamic(() => import('@/components/EcosystemSection'), { ssr: true });
+const ResultsSection = dynamic(() => import('@/components/ResultsSection'), { ssr: true });
+const ProcessSection = dynamic(() => import('@/components/ProcessSection'), { ssr: true });
+const TestimonialsSection = dynamic(() => import('@/components/TestimonialsSection'), { ssr: true });
+const LeadCaptureForm = dynamic(() => import('@/components/LeadCaptureForm'), { ssr: true });
+const AuditBanner = dynamic(() => import('@/components/AuditBanner'), { ssr: true });
+const DigitalConcierge = dynamic(() => import('@/components/DigitalConcierge'), { ssr: false });
 import { ArrowRight } from 'lucide-react';
 
 export default function Home() {

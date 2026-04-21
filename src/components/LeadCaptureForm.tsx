@@ -174,60 +174,60 @@ export default function LeadCaptureForm() {
             onSubmit={handleSubmit(onSubmit)} 
             className="space-y-6"
           >
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               <div className="space-y-2">
-                <label className="text-[11px] font-bold uppercase tracking-wider text-foreground/40 ml-1">Full Name</label>
+                <label className="text-[10px] md:text-[11px] font-bold uppercase tracking-wider text-foreground/40 ml-1">Full Name</label>
                 <input 
                   {...register('name')}
                   placeholder="Enter your name"
-                  className={`w-full bg-white/[0.03] border ${errors.name ? 'border-primary/50' : 'border-white/10'} rounded-2xl px-6 py-4 text-foreground text-sm focus:outline-none focus:border-primary/40 focus:bg-white/[0.05] transition-all placeholder:text-white/20`}
+                  className={`w-full bg-white/[0.03] border ${errors.name ? 'border-primary/50' : 'border-white/10'} rounded-xl md:rounded-2xl px-5 md:px-6 py-3.5 md:py-4 text-base md:text-sm text-foreground focus:outline-none focus:border-primary/40 focus:bg-white/[0.05] transition-all placeholder:text-white/20`}
                 />
                 {errors.name && <p className="text-primary text-[10px] font-medium ml-1">{errors.name.message}</p>}
               </div>
               <div className="space-y-2">
-                <label className="text-[11px] font-bold uppercase tracking-wider text-foreground/40 ml-1">Email Address</label>
+                <label className="text-[10px] md:text-[11px] font-bold uppercase tracking-wider text-foreground/40 ml-1">Email Address</label>
                 <input 
                   {...register('email')}
                   placeholder="name@email.com"
-                  className={`w-full bg-white/[0.03] border ${errors.email ? 'border-primary/50' : 'border-white/10'} rounded-2xl px-6 py-4 text-foreground text-sm focus:outline-none focus:border-primary/40 focus:bg-white/[0.05] transition-all placeholder:text-white/20`}
+                  className={`w-full bg-white/[0.03] border ${errors.email ? 'border-primary/50' : 'border-white/10'} rounded-xl md:rounded-2xl px-5 md:px-6 py-3.5 md:py-4 text-base md:text-sm text-foreground focus:outline-none focus:border-primary/40 focus:bg-white/[0.05] transition-all placeholder:text-white/20`}
                 />
                 {errors.email && <p className="text-primary text-[10px] font-medium ml-1">{errors.email.message}</p>}
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               <div className="space-y-2">
-                <label className="text-[11px] font-bold uppercase tracking-wider text-foreground/40 ml-1">Company</label>
+                <label className="text-[10px] md:text-[11px] font-bold uppercase tracking-wider text-foreground/40 ml-1">Company</label>
                 <input 
                   {...register('company')}
                   placeholder="Company Name"
-                  className={`w-full bg-white/[0.03] border ${errors.company ? 'border-primary/50' : 'border-white/10'} rounded-2xl px-6 py-4 text-foreground text-sm focus:outline-none focus:border-primary/40 focus:bg-white/[0.05] transition-all placeholder:text-white/20`}
+                  className={`w-full bg-white/[0.03] border ${errors.company ? 'border-primary/50' : 'border-white/10'} rounded-xl md:rounded-2xl px-5 md:px-6 py-3.5 md:py-4 text-base md:text-sm text-foreground focus:outline-none focus:border-primary/40 focus:bg-white/[0.05] transition-all placeholder:text-white/20`}
                 />
                 {errors.company && <p className="text-primary text-[10px] font-medium ml-1">{errors.company.message}</p>}
               </div>
               <div className="space-y-2">
-                <label className="text-[11px] font-bold uppercase tracking-wider text-foreground/40 ml-1 truncate">Phone <span className="text-[9px] opacity-50 italic lowercase">(optional)</span></label>
+                <label className="text-[10px] md:text-[11px] font-bold uppercase tracking-wider text-foreground/40 ml-1 truncate">Phone <span className="text-[9px] opacity-50 italic lowercase">(optional)</span></label>
                 <input 
                   {...register('phone')}
                   placeholder="+1 (555) 000-0000"
-                  className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 text-foreground text-sm focus:outline-none focus:border-primary/40 focus:bg-white/[0.05] transition-all placeholder:text-white/20"
+                  className="w-full bg-white/[0.03] border border-white/10 rounded-xl md:rounded-2xl px-5 md:px-6 py-3.5 md:py-4 text-base md:text-sm text-foreground focus:outline-none focus:border-primary/40 focus:bg-white/[0.05] transition-all placeholder:text-white/20"
                 />
               </div>
             </div>
 
             <div className="space-y-2">
-              <label className="text-[11px] font-bold uppercase tracking-wider text-foreground/40 ml-1">How can we help?</label>
+              <label className="text-[10px] md:text-[11px] font-bold uppercase tracking-wider text-foreground/40 ml-1">How can we help?</label>
               <textarea 
                 {...register('inquiry')}
                 placeholder="Briefly describe your project goals..."
-                rows={4}
-                className={`w-full bg-white/[0.03] border ${errors.inquiry ? 'border-primary/50' : 'border-white/10'} rounded-2xl px-6 py-5 text-foreground text-sm focus:outline-none focus:border-primary/40 focus:bg-white/[0.05] transition-all resize-none placeholder:text-white/20`}
+                rows={3}
+                className={`w-full bg-white/[0.03] border ${errors.inquiry ? 'border-primary/50' : 'border-white/10'} rounded-xl md:rounded-2xl px-5 md:px-6 py-4 md:py-5 text-base md:text-sm text-foreground focus:outline-none focus:border-primary/40 focus:bg-white/[0.05] transition-all resize-none placeholder:text-white/20`}
               />
               {errors.inquiry && <p className="text-primary text-[10px] font-medium ml-1">{errors.inquiry.message}</p>}
             </div>
 
-            <div className="flex flex-col sm:flex-row items-end sm:items-center justify-between gap-8 pt-4">
-              <div className="w-full sm:w-auto min-h-[70px] flex items-center justify-start relative z-50">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-6 md:gap-8 pt-2">
+              <div className="w-full sm:w-auto min-h-[70px] flex items-center justify-center sm:justify-start relative z-50">
                 <Turnstile
                   ref={turnstileRef}
                   siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || '1x00000000000000000000AA'} 
@@ -242,7 +242,7 @@ export default function LeadCaptureForm() {
               <button 
                 type="submit" 
                 disabled={isSubmitting}
-                className="w-full sm:w-auto px-12 py-5 bg-primary text-white font-black text-sm uppercase tracking-widest rounded-full flex items-center justify-center gap-4 disabled:opacity-50 transition-all duration-500 hover:shadow-[0_0_40px_rgba(255,0,85,0.4)] hover:-translate-y-1 active:translate-y-0"
+                className="w-full sm:w-auto px-10 md:px-12 py-4 md:py-5 bg-primary text-white font-black text-sm uppercase tracking-widest rounded-full flex items-center justify-center gap-4 disabled:opacity-50 transition-all duration-500 hover:shadow-[0_0_40px_rgba(255,0,85,0.4)] hover:-translate-y-1 active:translate-y-0 shadow-lg shadow-primary/20"
               >
                 {isSubmitting ? (
                   <>

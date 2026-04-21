@@ -72,17 +72,12 @@ export default function HeroSection() {
             </motion.div>
           </div>
 
-          {/* Neural Architecture Column */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 2, ease: easeOut, delay: 0.4 }}
-            className="relative hidden lg:flex items-center justify-center"
-          >
+          {/* Neural Architecture Column - Desktop Only */}
+          <div className="relative hidden lg:flex items-center justify-center min-h-[450px]">
             <NeuralPulse />
             {/* Shadows and lighting enhancements */}
             <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent z-20 pointer-events-none" />
-          </motion.div>
+          </div>
         </div>
       </div>
 
