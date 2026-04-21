@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
 import EcosystemSection from '@/components/EcosystemSection';

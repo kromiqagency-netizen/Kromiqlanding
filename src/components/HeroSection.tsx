@@ -1,7 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import NeuralPulse from './NeuralPulse';
+import dynamic from 'next/dynamic';
+
+const NeuralPulse = dynamic(() => import('./NeuralPulse'), { 
+  ssr: false,
+  loading: () => <div className="w-[300px] md:w-[450px] aspect-square rounded-full bg-white/5 animate-pulse" />
+});
 
 export default function HeroSection() {
   const easeOut: [number, number, number, number] = [0.22, 1, 0.36, 1];
