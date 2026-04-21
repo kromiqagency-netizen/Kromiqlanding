@@ -88,8 +88,8 @@ const jsonLd = {
       "url": "https://www.kromiq.in",
       "logo": "https://www.kromiq.in/icon.png",
       "sameAs": [
-        "https://www.linkedin.com/company/kromiq",
-        "https://twitter.com/kromiq"
+        "https://www.instagram.com/kromiq.agency?igsh=MWkwdTlzYWVraGU2Mw==",
+        "https://www.linkedin.com/company/kromiq-agency/about"
       ],
       "contactPoint": {
         "@type": "ContactPoint",

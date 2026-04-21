@@ -225,8 +225,8 @@ export default function Home() {
             <div>
               <h4 className="text-sm font-semibold text-foreground/60 mb-4">Connect</h4>
               <div className="space-y-3 text-sm text-foreground/30">
-                <a href="#" className="block hover:text-foreground/60 transition-colors">Instagram</a>
-                <a href="#" className="block hover:text-foreground/60 transition-colors">LinkedIn</a>
+                <a href="https://www.instagram.com/kromiq.agency?igsh=MWkwdTlzYWVraGU2Mw==" target="_blank" rel="noopener noreferrer" className="block hover:text-foreground/60 transition-colors">Instagram</a>
+                <a href="https://www.linkedin.com/company/kromiq-agency/about" target="_blank" rel="noopener noreferrer" className="block hover:text-foreground/60 transition-colors">LinkedIn</a>
                 <a href="#" className="block hover:text-foreground/60 transition-colors">WhatsApp</a>
               </div>
             </div>
