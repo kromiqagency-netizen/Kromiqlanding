@@ -22,8 +22,8 @@ const spaceMono = Space_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.kromiq.in'),
   title: {
-    default: "KROMIQ | Strategic Growth & Performance Marketing Agency",
-    template: "%s | KROMIQ"
+    default: "Best Strategic Digital Agency in India | KROMIQ",
+    template: "%s | Best Digital Agency"
   },
   description: "KROMIQ is a premier strategic growth agency synthesizing radical creative design with data-driven intelligence. Specializing in SEO, PPC, and AI Automation for global brands.",
   openGraph: {
