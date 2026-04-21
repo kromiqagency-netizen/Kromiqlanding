@@ -6,31 +6,35 @@ import { Layers, Puzzle, Cpu, Globe } from 'lucide-react';
 const features = [
   {
     icon: Layers,
-    title: 'Visual Identity',
+    title: 'Brand Identity',
     desc: 'Crafting radical, multi-modal brand ecosystems that command attention across the chroma spectrum.',
     stats: '98% RECALL',
-    color: 'text-primary border-primary'
+    color: 'text-primary border-primary',
+    href: '/services/brand-identity'
   },
   {
     icon: Puzzle,
-    title: 'Strategic Integration',
+    title: 'Digital Strategy',
     desc: 'Engineering custom digital tools that synthesize logic and creativity into unified growth engines.',
     stats: '142% GAIN',
-    color: 'text-accent border-accent'
+    color: 'text-accent border-accent',
+    href: '/services/digital-strategy'
   },
   {
     icon: Cpu,
     title: 'AI Automation',
     desc: 'Deploying autonomous agents and neural workflows to eliminate operational friction.',
     stats: '0.2ms LATENCY',
-    color: 'text-violet border-violet'
+    color: 'text-violet border-violet',
+    href: '/services/ai-automation'
   },
   {
     icon: Globe,
-    title: 'Unified Ecosystems',
+    title: 'Performance PPC',
     desc: 'Synthesizing data-driven intelligence into a cohesive digital presence for exponential scale.',
     stats: 'CORE SYNC',
-    color: 'text-cyan border-cyan'
+    color: 'text-cyan border-cyan',
+    href: '/services/ppc'
   }
 ];
 
@@ -63,16 +67,17 @@ export default function EcosystemSection() {
 
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {features.map((feature, i) => (
-            <motion.div
+            <motion.a
               key={feature.title}
+              href={feature.href}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: easeOut, delay: i * 0.1 }}
-              className="group p-8 md:p-10 squircle bg-zinc-900/40 border border-white/5 relative transition-all hover:bg-zinc-900 neon-border"
+              className="group p-8 md:p-10 squircle bg-zinc-900/40 border border-white/5 relative transition-all hover:bg-zinc-900 neon-border cursor-pointer block"
             >
               <div className="flex justify-between items-start mb-8 md:mb-10">
-                <div className={`w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-2xl bg-black ${feature.color} border transition-transform duration-500 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(255,0,85,0.2)]`}>
+                <div className={`w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-2xl bg-black ${feature.color} border transition-all duration-500 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(255,0,85,0.2)]`}>
                   <feature.icon size={20} />
                 </div>
                 <div className="font-mono text-[9px] md:text-[10px] text-foreground/20 uppercase tracking-[0.4em] font-bold group-hover:text-foreground/60 transition-colors">
@@ -80,11 +85,17 @@ export default function EcosystemSection() {
                 </div>
               </div>
               
-              <h3 className="text-2xl md:text-3xl font-display font-bold mb-4 tracking-tight">{feature.title}</h3>
+              <div className="flex items-center justify-between gap-4">
+                <h3 className="text-2xl md:text-3xl font-display font-bold mb-4 tracking-tight">{feature.title}</h3>
+                <div className="text-primary opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all">
+                  <Puzzle size={20} />
+                </div>
+              </div>
+              
               <p className="text-base md:text-lg text-foreground/40 leading-relaxed font-sans tracking-tight group-hover:text-foreground/60 transition-colors">
                 {feature.desc}
               </p>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
       </div>

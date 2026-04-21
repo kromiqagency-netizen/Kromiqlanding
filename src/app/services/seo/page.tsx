@@ -1,78 +1,189 @@
-import { Metadata } from "next";
+'use client';
+
 import Navigation from "@/components/Navigation";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
-
-export const metadata: Metadata = {
-  title: "Enterprise SEO Optimization | Global Search Dominance | KROMIQ",
-  description: "Accelerate your enterprise growth with KROMIQ's data-driven SEO. Advanced SGE optimization, technical excellence, and E-E-A-T compliance for world-class brands.",
-};
+import PerformanceMetrics from "@/components/PerformanceMetrics";
+import { Globe, Zap, BarChart3, ShieldCheck, Search, Database, Cpu, Activity } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function SEOPage() {
+  const framework = [
+    { 
+      number: "01",
+      title: "Technical Infrastructure", 
+      desc: "Forensic technical audit focusing on sub-100ms LCP, mobile-first indexing excellence, and rigorous JSON-LD Schema deployment." 
+    },
+    { 
+      number: "02",
+      title: "Topical Synthesis", 
+      desc: "Building comprehensive semantic clusters that transition your site from a collection of keywords to an authoritative entity node." 
+    },
+    { 
+      number: "03",
+      title: "Authority Accumulation", 
+      desc: "Executing high-velocity link synthesis and digital PR to build the E-E-A-T signals required for high-competition SERP dominance." 
+    },
+    { 
+      number: "04",
+      title: "AI & SGE Integration", 
+      desc: "Optimizing content for the Search Generative Experience, ensuring your brand is cited as the primary source by LLMs and search agents." 
+    },
+  ];
+
+  const deliverables = [
+    "Comprehensive Technical SEO Audit",
+    "Semantic Topic Cluster Architecture",
+    "Advanced Entity-Based Schema Markup",
+    "High-Authority Backlink Synthesis",
+    "SGE & LLM Optimization Strategy",
+    "Custom Search Analytics Dashboards",
+  ];
+
+  const metrics = [
+    { label: "Share of Search", value: "+340%", desc: "Exponential growth in organic mindshare across high-intent search categories." },
+    { label: "Organic Revenue", value: "+156%", desc: "Direct revenue attribution from non-branded organic traffic through intent-matching." },
+    { label: "SGE Citation Freq", value: "x3.2", desc: "Measured frequency of brand citation within AI-generated search snapshots." },
+  ];
+
   return (
-    <main className="min-h-screen pt-20 px-4 md:px-8 space-y-24">
+    <main className="min-h-screen bg-[#030303] text-foreground selection:bg-primary/30">
       <Navigation />
       
       {/* Hero Section */}
-      <section className="max-w-7xl mx-auto py-12 md:py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
-            <h1 className="text-5xl md:text-7xl font-outfit font-bold leading-tight">
-              Enterprise SEO <br />
-              <span className="text-primary tracking-tighter">Optimization</span>
+      <section className="relative pt-44 pb-32 overflow-hidden">
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="max-w-4xl">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="flex items-center gap-3 mb-8 text-primary font-mono text-sm tracking-widest uppercase"
+            >
+              <Database size={16} /> [ Algorithmic Infrastructure v5.0 ]
+            </motion.div>
+            <h1 className="text-6xl md:text-9xl font-display font-bold tracking-tighter leading-[0.85] mb-10 text-foreground">
+              Global <br />
+              <span className="text-foreground/40 italic font-medium">Dominance.</span>
             </h1>
-            <p className="text-xl text-foreground/70 max-w-xl">
-              Dominate the algorithmic landscape. We synthesize technical excellence with high-velocity topical authority to secure your position at the apex of global and local search.
+            <p className="text-xl md:text-2xl text-foreground/40 max-w-2xl leading-relaxed mb-12 font-sans tracking-tight">
+              We don&apos;t just optimize for keywords; we architect digital entities that command absolute authority across traditional search and the new era of LLM-driven discovery.
             </p>
-            <div className="flex flex-wrap gap-4 pt-4">
-              <span className="px-3 py-1 bg-primary/10 border border-primary/20 rounded-full text-xs font-mono">SGE-READY</span>
-              <span className="px-3 py-1 bg-primary/10 border border-primary/20 rounded-full text-xs font-mono">E-E-A-T COMPLIANT</span>
-              <span className="px-3 py-1 bg-primary/10 border border-primary/20 rounded-full text-xs font-mono">GLOBAL SCALE</span>
+            
+            <div className="w-full">
+              <PerformanceMetrics metrics={metrics} />
             </div>
           </div>
-          <div className="relative group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-            <div className="relative bg-secondary p-8 rounded-2xl border border-white/10 h-64 flex items-center justify-center">
-              <span className="text-9xl opacity-10 font-bold select-none">SEO</span>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-16 h-16 border-2 border-primary rounded-full animate-ping"></div>
+        </div>
+        {/* Background algorithmic glow */}
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 blur-[150px] rounded-full -z-10 translate-x-1/2 -translate-y-1/2" />
+        <div className="absolute bottom-[-10%] left-1/4 w-[600px] h-[600px] bg-primary/5 blur-[120px] rounded-full -z-10" />
+      </section>
+
+      {/* The SEO Gap Section */}
+      <section className="py-24 border-t border-white/5 bg-zinc-900/10">
+        <div className="container mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-display font-bold tracking-tight mb-8 text-foreground">The Keyword Trap</h2>
+              <p className="text-lg text-foreground/50 leading-relaxed space-y-6 lg:max-w-xl">
+                Most agencies are still fighting for vanity keywords using 2010 tactics. They ignore the shift toward **Generative Search** and **Entity Authority**. <br /><br />
+                KROMIQ architects your presence to be the definitive answer for your sector. We optimize for intent and intelligence, ensuring that when an AI or a human asks a question, your brand is the result.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="p-6 bg-white/[0.02] border border-white/5 rounded-2xl">
+                <Cpu className="text-primary mb-4" />
+                <h4 className="font-bold mb-2">SGE Optimized</h4>
+                <p className="text-xs text-foreground/30 leading-relaxed">Securing your brand&apos;s place in the AI-generated search snapshots.</p>
+              </div>
+              <div className="p-6 bg-white/[0.02] border border-white/5 rounded-2xl mt-4">
+                <Activity className="text-primary mb-4" />
+                <h4 className="font-bold mb-2">High Velocity</h4>
+                <p className="text-xs text-foreground/30 leading-relaxed">Rapid indexation and authority building for competitive global markets.</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Strategic Framework */}
-      <section className="max-w-5xl mx-auto py-12">
-        <div className="space-y-16">
-          <div className="border-l-2 border-primary pl-8 space-y-4">
-            <h2 className="text-3xl font-bold font-outfit">The Shift to Entity-Based Search</h2>
-            <p className="text-lg text-foreground/60 leading-relaxed">
-              Google’s Search Generative Experience (SGE) has fundamentally transformed the index. We guide your transition from lexical keyword targeting to becoming an authoritative data node that LLMs cite directly.
-            </p>
+      {/* Execution Framework */}
+      <section className="py-32 md:py-44 relative">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl mb-24">
+            <h2 className="text-4xl md:text-7xl font-display font-bold tracking-tighter mb-8 text-foreground">Algorithmic <br /><span className="text-foreground/40 italic">Dominance.</span></h2>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
-            {[
-              { title: "Technical Infrastructure", desc: "Mobile-first excellence, sub-100ms LCP, and rigorous Schema markup deployment." },
-              { title: "Topical Authority", desc: "Building comprehensive topic clusters that signal absolute mastery to crawlers." },
-              { title: "Conversion Architecture", desc: "Optimizing search intent for procurement, not just vanity metrics." }
-            ].map((item, i) => (
-              <div key={i} className="p-6 bg-secondary/50 rounded-xl border border-white/5 space-y-3">
-                <h3 className="font-bold text-primary uppercase tracking-widest">{item.title}</h3>
-                <p className="text-foreground/70">{item.desc}</p>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+            {framework.map((step) => (
+              <div key={step.number} className="group flex flex-col">
+                <div className="text-5xl font-display font-bold text-white/5 mb-6 group-hover:text-primary/20 transition-colors">{step.number}</div>
+                <h3 className="text-xl font-bold mb-4 text-foreground">{step.title}</h3>
+                <p className="text-sm text-foreground/40 leading-relaxed">{step.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Conversion Section */}
-      <section className="max-w-2xl mx-auto pb-24">
-        <div className="text-center space-y-4 mb-12">
-          <h2 className="text-3xl font-bold">Secure Your Dominance</h2>
-          <p className="text-foreground/60">Ready to audit your algorithmic footprint?</p>
+      {/* Deliverables Ledger */}
+      <section className="py-32 bg-zinc-900/30 border-y border-white/5">
+        <div className="container mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-24">
+            <div>
+              <h2 className="text-4xl font-display font-bold tracking-tight mb-12 text-foreground">SEO Deliverables</h2>
+              <div className="grid sm:grid-cols-2 gap-8">
+                {deliverables.map((item) => (
+                  <div key={item} className="flex items-start gap-4">
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shadow-[0_0_10px_rgba(255,0,85,0.8)]" />
+                    <span className="text-sm text-foreground/60 font-medium">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="bg-primary/5 rounded-3xl p-12 border border-primary/10 flex flex-col justify-center">
+              <Globe className="text-primary mb-8" size={48} />
+              <h3 className="text-3xl font-bold mb-6 tracking-tight text-foreground">Global Entity Rank</h3>
+              <p className="text-foreground/50 leading-relaxed">
+                We don&apos;t just rank in your city; we optimize for global linguistic nuances and international server nodes, ensuring your search authority scales across borders.
+              </p>
+            </div>
+          </div>
         </div>
-        <LeadCaptureForm />
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-32">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold text-center mb-16 text-foreground">Search FAQ</h2>
+            <div className="space-y-12">
+              <div className="space-y-4">
+                <h4 className="text-lg font-semibold text-primary">Is SEO still relevant in the age of AI?</h4>
+                <p className="text-foreground/40 text-sm leading-relaxed">Correct. It has evolved. SEO is now &quot;Search Infrastructure Optimization.&quot; If your data isn&apos;t structured for LLMs, you don&apos;t exist in the new index.</p>
+              </div>
+              <div className="space-y-4">
+                <h4 className="text-lg font-semibold text-primary">How long until we see first-page results?</h4>
+                <p className="text-foreground/40 text-sm leading-relaxed">For enterprise technical fixes, we often see volatility and gains in 4-6 weeks. Broad authority building typically takes 4-6 months.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section id="contact" className="py-32 md:py-44 bg-[#030303] relative">
+        <div className="container mx-auto px-6">
+          <div className="max-w-5xl mx-auto bg-zinc-900/20 border border-white/5 rounded-[40px] p-12 md:p-24 overflow-hidden relative">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              <div>
+                <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-8 text-foreground">Secure Your <br /><span className="text-primary italic">Dominance.</span></h2>
+                <p className="text-foreground/40 mb-10 text-lg">Don&apos;t be invisible. Let’s audit your algorithmic footprint.</p>
+              </div>
+              <LeadCaptureForm />
+            </div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 blur-[120px] rounded-full -z-10" />
+          </div>
+        </div>
       </section>
     </main>
   );

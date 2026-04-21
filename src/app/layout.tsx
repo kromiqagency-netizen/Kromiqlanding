@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Outfit, Space_Mono } from "next/font/google";
 import "./globals.css";
+import PageLoader from "@/components/PageLoader";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -89,6 +90,7 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-background text-foreground selection:bg-primary/30 font-sans overflow-x-hidden">
+        <PageLoader />
         {children}
       </body>
     </html>
