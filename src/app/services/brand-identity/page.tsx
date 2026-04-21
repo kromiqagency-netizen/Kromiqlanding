@@ -3,7 +3,7 @@
 import Navigation from "@/components/Navigation";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
 import PerformanceMetrics from "@/components/PerformanceMetrics";
-import { Palette, Filters as Layers, Eye, Target, Sparkles, Box, Compass, Share2 } from "lucide-react";
+import { Target, Sparkles, Box, Compass } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function BrandIdentityPage() {

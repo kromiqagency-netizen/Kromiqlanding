@@ -36,13 +36,13 @@ export default function Globe() {
         // Singapore
         { location: [1.3521, 103.8198], size: 0.05 },
       ],
-      onRender: (state) => {
+      onRender: (state: any) => {
         // Called on every animation frame.
         // `state` will be mutated in each render.
         state.phi = phi;
         phi += 0.003;
       },
-    });
+    } as any);
 
     return () => {
       globe.destroy();
