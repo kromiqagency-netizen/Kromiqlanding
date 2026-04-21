@@ -149,6 +149,31 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FAQ Section for AEO */}
+      <section className="py-32 border-t border-white/5">
+        <div className="container mx-auto px-6 md:px-10">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tighter mb-16 text-center">
+              Strategic <span className="text-foreground/40 italic">Intelligence.</span>
+            </h2>
+            <div className="grid gap-12">
+              <div className="space-y-4">
+                <h3 className="text-xl font-bold text-primary">How does KROMIQ drive ROI?</h3>
+                <p className="text-foreground/50 leading-relaxed">We combine forensic data analysis with high-fidelity creative execution. By identifying high-intent user signals and optimizing every touchpoint of the conversion funnel, we ensure maximum capital efficiency for your marketing spend.</p>
+              </div>
+              <div className="space-y-4">
+                <h3 className="text-xl font-bold text-primary">What industries do you specialize in?</h3>
+                <p className="text-foreground/50 leading-relaxed">Our expertise spans D2C Luxury, FinTech, SaaS, and High-Growth Enterprise. We focus on brands that require a synthesis of technical authority and emotional resonance.</p>
+              </div>
+              <div className="space-y-4">
+                <h3 className="text-xl font-bold text-primary">How do you handle SEO and Indexing?</h3>
+                <p className="text-foreground/50 leading-relaxed">Our SEO framework is built on Semantic Connectivity. We don&apos;t just target keywords; we build topical authority through structured data, high-performance technical architecture, and content designed for both search engines and AI answer engines.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Footer — with Logo */}
       <footer className="py-16 md:py-24 border-t border-white/5 relative bg-background">
         <div className="container mx-auto px-6 md:px-10">

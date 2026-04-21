@@ -20,23 +20,44 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "KROMIQ | Strategic Growth Agency",
-  description: "Accelerate your vision with a synthesis of creative design and data-driven intelligence. KROMIQ is your strategic integrator for exponential growth.",
+  metadataBase: new URL('https://www.kromiq.in'),
+  title: {
+    default: "KROMIQ | Strategic Growth & Performance Marketing Agency",
+    template: "%s | KROMIQ"
+  },
+  description: "KROMIQ is a premier strategic growth agency synthesizing radical creative design with data-driven intelligence. Specializing in SEO, PPC, and AI Automation for global brands.",
   openGraph: {
-    title: "KROMIQ | Strategic Growth",
-    description: "Synthesis of Chroma and IQ for modern brands.",
-    url: "https://kromiq.agency",
+    title: "KROMIQ | Strategic Growth Agency",
+    description: "Synthesis of Chroma and IQ. We build high-performance digital ecosystems for modern brands.",
+    url: "https://www.kromiq.in",
     siteName: "KROMIQ",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'KROMIQ Strategic Growth',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'KROMIQ | Strategic Growth Agency',
+    description: 'Synthesis of Chroma and IQ for modern brands.',
+    creator: '@kromiq',
+    images: ['/og-image.png'],
   },
   keywords: [
     "Digital Marketing Agency Mumbai",
-    "Enterprise SEO Services",
-    "Strategic Growth Agency India",
-    "PPC Management Global",
+    "Best SEO Agency India",
+    "Performance Marketing Agency",
+    "Strategic Brand Design",
+    "AI Automation Services India",
+    "PPC Management Agency",
     "KROMIQ Digital",
-    "Performance Marketing Mumbai"
+    "Conversion Rate Optimization"
   ],
   authors: [{ name: "KROMIQ Strategy Team" }],
   creator: "KROMIQ",
@@ -44,35 +65,79 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.kromiq.in",
   },
-  icons: {
-    icon: "/icon.png",
-    apple: "/icon.png",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "KROMIQ",
-  "alternateName": "Kromium Digital",
-  "url": "https://www.kromiq.in",
-  "logo": "https://www.kromiq.in/icon.png",
-  "description": "Premium digital marketing agency specializing in SEO, PPC, and Strategic Growth for Global and Indian markets.",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Mumbai",
-    "addressRegion": "Maharashtra",
-    "addressCountry": "IN"
-  },
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+91-XXXXXXXXXX",
-    "contactType": "sales",
-    "areaServed": ["IN", "US", "GB"]
-  },
-  "sameAs": [
-    "https://www.linkedin.com/company/kromiq",
-    "https://twitter.com/kromiq"
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.kromiq.in/#organization",
+      "name": "KROMIQ",
+      "url": "https://www.kromiq.in",
+      "logo": "https://www.kromiq.in/icon.png",
+      "sameAs": [
+        "https://www.linkedin.com/company/kromiq",
+        "https://twitter.com/kromiq"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-XXXXXXXXXX",
+        "contactType": "sales",
+        "areaServed": "IN"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.kromiq.in/#website",
+      "url": "https://www.kromiq.in",
+      "name": "KROMIQ",
+      "publisher": { "@id": "https://www.kromiq.in/#organization" }
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Search Engine Optimization",
+      "provider": { "@id": "https://www.kromiq.in/#organization" },
+      "areaServed": "Global"
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Performance Marketing",
+      "provider": { "@id": "https://www.kromiq.in/#organization" },
+      "areaServed": "Global"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does KROMIQ drive ROI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We combine forensic data analysis with high-fidelity creative execution to ensure maximum capital efficiency for marketing spend."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you handle SEO and Indexing?",
+          "acceptedAnswer": {
+            "@type": { "@type": "Answer" },
+            "text": "Our SEO framework is built on Semantic Connectivity, using structured data and technical architecture optimized for both search engines and AI answer engines."
+          }
+        }
+      ]
+    }
   ]
 };
 
