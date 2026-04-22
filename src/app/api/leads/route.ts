@@ -16,8 +16,14 @@ const TURNSTILE_SECRET_KEY = process.env.TURNSTILE_SECRET_KEY || '1x000000000000
 const SUPABASE_URL = process.env.SUPABASE_URL || '';
 const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY || '';
 const BREVO_API_KEY = process.env.BREVO_API_KEY || '';
-const BREVO_SENDER_EMAIL = process.env.BREVO_SENDER_EMAIL || 'hello@kromiq.agency';
+const BREVO_SENDER_EMAIL = process.env.BREVO_SENDER_EMAIL || 'kromiqagency@gmail.com'; // Use .env fallback
 const BREVO_SENDER_NAME = process.env.BREVO_SENDER_NAME || 'KROMIQ | Strategic Intelligence';
+
+// Audit environment variables at startup
+console.log('[INIT] Environment Audit:');
+console.log(`- Supabase URL: ${SUPABASE_URL ? 'PRESENT' : 'MISSING'}`);
+console.log(`- Brevo API Key: ${BREVO_API_KEY ? 'PRESENT (Len: ' + BREVO_API_KEY.length + ')' : 'MISSING'}`);
+console.log(`- Brevo Sender: ${BREVO_SENDER_EMAIL}`);
 
 // Initialize Supabase
 const supabase = (SUPABASE_URL && SUPABASE_ANON_KEY) 
@@ -27,7 +33,7 @@ const supabase = (SUPABASE_URL && SUPABASE_ANON_KEY)
 if (!supabase) console.warn('[DATABASE] Supabase credentials missing. Data persistence disabled.');
 
 export async function POST(req: Request) {
-  console.log('[API] Lead submission received.');
+  console.log('[API] New submission request incoming.');
   try {
     const body = await req.json();
     
