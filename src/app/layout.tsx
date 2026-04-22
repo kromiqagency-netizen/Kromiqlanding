@@ -153,6 +153,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+      </head>
       <body className="bg-background text-foreground selection:bg-primary/30 font-sans overflow-x-hidden">
         <PageLoader />
         {children}
