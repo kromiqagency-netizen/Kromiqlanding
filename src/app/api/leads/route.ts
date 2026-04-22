@@ -125,15 +125,19 @@ export async function POST(req: Request) {
             'bharat@netizen.agency',
             `[LEAD] ${company} | Audit Ref: ${auditRef}`,
             `
-              <div style="font-family: sans-serif; background: #000; color: #fff; padding: 40px; border: 1px solid #333;">
-                <h2 style="color: #ff0055;">New Transmission: ${auditRef}</h2>
-                <p><strong>Entity:</strong> ${company}</p>
-                <p><strong>Lead:</strong> ${name}</p>
-                <p><strong>Email:</strong> ${email}</p>
-                <p><strong>Phone:</strong> ${phone || 'N/A'}</p>
-                <hr style="border: 0; border-top: 1px solid #1a1a1a;" />
-                <p><strong>Inquiry:</strong></p>
-                <p style="color: #888;">${inquiry}</p>
+              <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #000; color: #fff; padding: 40px; border: 1px solid #333; max-width: 600px; margin: 0 auto;">
+                <h2 style="color: #ff0055; font-size: 24px; margin-bottom: 20px; letter-spacing: -0.5px;">New Transmission Detected</h2>
+                <div style="background: #111; padding: 25px; border-radius: 12px; border: 1px solid #222;">
+                  <p style="margin: 10px 0;"><strong style="color: #666; font-size: 10px; text-transform: uppercase; letter-spacing: 1px;">Entity</strong><br/><span style="font-size: 18px;">${company}</span></p>
+                  <p style="margin: 10px 0;"><strong style="color: #666; font-size: 10px; text-transform: uppercase; letter-spacing: 1px;">Lead Name</strong><br/><span style="font-size: 18px;">${name}</span></p>
+                  <p style="margin: 10px 0;"><strong style="color: #666; font-size: 10px; text-transform: uppercase; letter-spacing: 1px;">Communication</strong><br/><span style="font-size: 18px;">${email}</span></p>
+                  <p style="margin: 10px 0;"><strong style="color: #666; font-size: 10px; text-transform: uppercase; letter-spacing: 1px;">Phone</strong><br/><span style="font-size: 18px;">${phone || 'N/A'}</span></p>
+                </div>
+                <div style="margin-top: 30px;">
+                  <strong style="color: #666; font-size: 10px; text-transform: uppercase; letter-spacing: 1px;">Strategic Inquiry</strong>
+                  <p style="color: #ccc; line-height: 1.6; font-size: 16px; background: #080808; padding: 15px; border-radius: 8px;">${inquiry}</p>
+                </div>
+                <p style="color: #444; font-size: 10px; margin-top: 40px; border-top: 1px solid #222; pt: 20px;">// REF_ID: ${auditRef} | SYSTEM_CORE_LOG</p>
               </div>
             `
           );
@@ -149,34 +153,52 @@ export async function POST(req: Request) {
             `Strategic Intake Dossier | REF: ${auditRef}`,
             `
               <!DOCTYPE html>
-              <html lang="en">
-                <head>
-                  <meta charset="utf-8">
-                  <style>
-                    body { font-family: sans-serif; background-color: #050505; color: #ffffff; margin: 0; padding: 40px; }
-                    .container { max-width: 600px; margin: 0 auto; background: #0a0a0a; border: 1px solid #1a1a1a; padding: 40px; border-radius: 20px; }
-                    .logo { font-size: 24px; font-weight: bold; color: #fff; margin-bottom: 30px; }
-                    .dot { color: #ff0055; }
-                    .highlight { color: #ff0055; font-weight: bold; }
-                    .card { background: #0d0d0d; border: 1px solid #1a1a1a; padding: 20px; border-radius: 12px; margin: 20px 0; }
-                    .label { font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: #444; margin-bottom: 5px; }
-                  </style>
-                </head>
-                <body>
-                  <div class="container">
-                    <div class="logo">KROMIQ<span class="dot">.</span></div>
-                    <h2>Greetings, ${name}</h2>
-                    <p>Your tactical inquiry has been indexed. Our team is performing a high-fidelity audit.</p>
-                    <div class="card">
-                      <div class="label">Target Entity</div>
-                      <div>${company}</div>
-                    </div>
-                    <div class="card">
-                      <div class="label">Reference ID</div>
-                      <div class="highlight">${auditRef}</div>
-                    </div>
-                    <p style="font-size: 12px; color: #444; margin-top: 40px;">// SYSTEM_STATUS: ENCRYPTED_PENDING_REVIEW</p>
-                  </div>
+              <html>
+                <body style="margin: 0; padding: 0; background-color: #050505; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#050505">
+                    <tr>
+                      <td align="center" style="padding: 40px 20px;">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width: 600px; background-color: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 24px; overflow: hidden;">
+                          <tr>
+                            <td style="padding: 50px 40px;">
+                              <div style="font-size: 24px; font-weight: 800; color: #ffffff; letter-spacing: -1px; margin-bottom: 40px;">
+                                KROMIQ<span style="color: #ff0055;">.</span>
+                              </div>
+                              
+                              <h1 style="color: #ffffff; font-size: 28px; font-weight: 700; margin-bottom: 20px; letter-spacing: -0.5px;">Greetings, ${name}</h1>
+                              <p style="color: #888888; font-size: 16px; line-height: 1.6; margin-bottom: 40px;">
+                                Your tactical inquiry has been successfully indexed. Our intelligence team is now performing a high-fidelity audit of your requirements.
+                              </p>
+                              
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-bottom: 40px;">
+                                <tr>
+                                  <td style="padding: 20px; background-color: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 16px; margin-bottom: 12px; display: block;">
+                                    <div style="font-size: 10px; font-weight: 700; color: #444444; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px;">Target Entity</div>
+                                    <div style="font-size: 18px; color: #ffffff; font-weight: 500;">${company}</div>
+                                  </td>
+                                </tr>
+                                <tr><td style="height: 12px;"></td></tr>
+                                <tr>
+                                  <td style="padding: 20px; background-color: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 16px; display: block;">
+                                    <div style="font-size: 10px; font-weight: 700; color: #444444; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px;">Reference ID</div>
+                                    <div style="font-size: 18px; color: #ff0055; font-weight: 700; font-family: monospace;">${auditRef}</div>
+                                  </td>
+                                </tr>
+                              </table>
+                              
+                              <div style="border-top: 1px solid #1a1a1a; padding-top: 30px; margin-top: 40px;">
+                                <p style="color: #333333; font-family: monospace; font-size: 11px; margin: 0;">// SYSTEM_STATUS: ENCRYPTED_PENDING_REVIEW</p>
+                                <p style="color: #333333; font-family: monospace; font-size: 11px; margin: 5px 0 0 0;">// ACCESS_LEVEL: RESTRICTED_INTAKE</p>
+                              </div>
+                            </td>
+                          </tr>
+                        </table>
+                        <p style="color: #444444; font-size: 12px; margin-top: 30px;">
+                          &copy; 2026 KROMIQ Strategic Intelligence. All rights reserved.
+                        </p>
+                      </td>
+                    </tr>
+                  </table>
                 </body>
               </html>
             `
