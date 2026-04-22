@@ -153,8 +153,6 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-      </head>
       <body className="bg-background text-foreground selection:bg-primary/30 font-sans overflow-x-hidden">
         <PageLoader />
         {children}

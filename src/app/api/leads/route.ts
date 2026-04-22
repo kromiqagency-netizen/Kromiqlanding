@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
-import { BrevoClient } from '@getbrevo/brevo';
 import * as z from 'zod';
 
 const formSchema = z.object({
@@ -26,12 +25,6 @@ const supabase = (SUPABASE_URL && SUPABASE_ANON_KEY)
   : null;
 
 if (!supabase) console.warn('[DATABASE] Supabase credentials missing. Data persistence disabled.');
-
-// Initialize Brevo
-const brevo = BREVO_API_KEY ? new BrevoClient({ apiKey: BREVO_API_KEY }) : null;
-
-if (!brevo) console.warn('[EMAIL] Brevo API Key missing. Email automation disabled.');
-else console.log('[EMAIL] Brevo engine initialized successfully.');
 
 export async function POST(req: Request) {
   console.log('[API] Lead submission received.');
@@ -90,20 +83,42 @@ export async function POST(req: Request) {
 
     const auditRef = Math.random().toString(36).substring(7).toUpperCase();
 
-    // 5. Email Automation (V4 Nexus Intake Portfolio)
-    if (brevo) {
+    // 5. Email Automation (Direct V3 SMTP Fetch for Maximum Reliability)
+    if (BREVO_API_KEY) {
       try {
-        console.log(`[EMAIL] Transmission protocol initiated.`);
+        console.log(`[EMAIL] Initiating direct transmission via Brevo V3 API.`);
         console.log(`[EMAIL] Target: ${email}`);
-        console.log(`[EMAIL] Sender Identity: ${BREVO_SENDER_NAME} <${BREVO_SENDER_EMAIL}>`);
+        console.log(`[EMAIL] Sender: ${BREVO_SENDER_EMAIL}`);
 
-        // Notification to Agency
+        const sendBrevoEmail = async (toEmail: string, subject: string, html: string) => {
+          const response = await fetch('https://api.brevo.com/v3/smtp/email', {
+            method: 'POST',
+            headers: {
+              'accept': 'application/json',
+              'api-key': BREVO_API_KEY,
+              'content-type': 'application/json'
+            },
+            body: JSON.stringify({
+              sender: { name: BREVO_SENDER_NAME, email: BREVO_SENDER_EMAIL },
+              to: [{ email: toEmail }],
+              subject: subject,
+              htmlContent: html
+            })
+          });
+          
+          const data = await response.json();
+          if (!response.ok) {
+            throw new Error(JSON.stringify(data));
+          }
+          return data;
+        };
+
+        // Agency Notification
         try {
-          const agencyResponse = await brevo.transactionalEmails.sendTransacEmail({
-            sender: { email: BREVO_SENDER_EMAIL, name: BREVO_SENDER_NAME },
-            to: [{ email: 'bharat@netizen.agency' }],
-            subject: `[LEAD] ${company} | Audit Ref: ${auditRef}`,
-            htmlContent: `
+          const agencyData = await sendBrevoEmail(
+            'bharat@netizen.agency',
+            `[LEAD] ${company} | Audit Ref: ${auditRef}`,
+            `
               <div style="font-family: sans-serif; background: #000; color: #fff; padding: 40px; border: 1px solid #333;">
                 <h2 style="color: #ff0055;">New Transmission: ${auditRef}</h2>
                 <p><strong>Entity:</strong> ${company}</p>
@@ -114,20 +129,19 @@ export async function POST(req: Request) {
                 <p><strong>Inquiry:</strong></p>
                 <p style="color: #888;">${inquiry}</p>
               </div>
-            `,
-          });
-          console.log('[EMAIL] Agency notification dispatched:', agencyResponse.messageId);
-        } catch (agencyError: any) {
-          console.error('[EMAIL] Agency Notification Failed:', agencyError.response?.data || agencyError.message || agencyError);
+            `
+          );
+          console.log('[EMAIL] Agency notification dispatched:', agencyData.messageId);
+        } catch (err: any) {
+          console.error('[EMAIL] Agency Notification Failed:', err.message);
         }
 
-        // V4 Executive Portfolio Intake Confirmation
+        // Client Confirmation
         try {
-          const clientResponse = await brevo.transactionalEmails.sendTransacEmail({
-            sender: { email: BREVO_SENDER_EMAIL, name: BREVO_SENDER_NAME },
-            to: [{ email: email }],
-            subject: `Strategic Intake Dossier | REF: ${auditRef}`,
-            htmlContent: `
+          const clientData = await sendBrevoEmail(
+            email,
+            `Strategic Intake Dossier | REF: ${auditRef}`,
+            `
               <!DOCTYPE html>
               <html lang="en">
                 <head>
@@ -159,18 +173,18 @@ export async function POST(req: Request) {
                   </div>
                 </body>
               </html>
-            `,
-          });
-          console.log(`[EMAIL] Client dossier dispatched to ${email}:`, clientResponse.messageId);
-        } catch (clientError: any) {
-          console.error('[EMAIL] Client Confirmation Failed:', clientError.response?.data || clientError.message || clientError);
+            `
+          );
+          console.log(`[EMAIL] Client dossier dispatched to ${email}:`, clientData.messageId);
+        } catch (err: any) {
+          console.error('[EMAIL] Client Confirmation Failed:', err.message);
         }
 
       } catch (emailError: any) {
-        console.error('[EMAIL] Brevo CRITICAL FAILURE:', emailError.response?.data || emailError.message || emailError);
+        console.error('[EMAIL] Brevo CRITICAL FAILURE:', emailError.message);
       }
     } else {
-      console.warn('[EMAIL] Skipping automation: Brevo client not initialized.');
+      console.warn('[EMAIL] Skipping automation: BREVO_API_KEY not found.');
     }
 
     return NextResponse.json({ message: 'Success', auditRef }, { status: 200 });

@@ -7,6 +7,7 @@ import * as z from 'zod';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, Lock, ArrowRight, Loader2, Sparkles, Phone } from 'lucide-react';
 import { Turnstile, type TurnstileInstance } from '@marsidev/react-turnstile';
+import Script from 'next/script';
 
 const formSchema = z.object({
   name: z.string().min(2, 'Please enter your full name'),
@@ -79,6 +80,7 @@ export default function LeadCaptureForm() {
 
   return (
     <div className="relative min-h-[400px] flex flex-col justify-center">
+      <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" strategy="lazyOnload" />
       <AnimatePresence mode="wait">
         {isSuccess ? (
           <motion.div 

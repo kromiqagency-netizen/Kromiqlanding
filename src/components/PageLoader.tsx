@@ -13,7 +13,7 @@ export default function PageLoader() {
       const timer = setTimeout(() => {
         setLoading(false);
         sessionStorage.setItem('kromiq_loader_shown', 'true');
-      }, 1400); // Faster load feel
+      }, 800); // Ultra-fast load feel
       return () => clearTimeout(timer);
     }
   }, []);
